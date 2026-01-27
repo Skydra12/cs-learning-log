@@ -1,4 +1,4 @@
-# cs-learning-log
+# CS_learning_log
 
 This repository is a record of my CS learning during military service.
 
