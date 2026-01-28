@@ -4,7 +4,7 @@
 A dynamic data structure where each element (node) points to the next one
 
 ## Structure of a Node
-'''C
+```C
 struct Node {
   int data;
   struct Node* next;
@@ -12,7 +12,7 @@ struct Node {
 
 ## Example
 - Creating 3 nodes
-  '''C
+  ```C
   struct Node* head = malloc(sizeof(struct Node));
   struct Node* second = malloc(sizeof(struct Node));
   struct Node* third = malloc(sizeof(struct Node));
