@@ -8,8 +8,8 @@ A dynamic data structure where each element (node) points to the next one
 struct Node {
   int data;
   struct Node* next;
-}
-
+};
+```
 ## Example
 - Creating 3 nodes
   ```C
