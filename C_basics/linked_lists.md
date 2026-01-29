@@ -35,10 +35,22 @@ struct Node {
     struct Node* curr = head;
 
     while(curr != NULL) {
-      printf("%d -> ", curr->data);
-      curr = curr->next;
+      printf("%d -> ", curr->data); // visit the node
+      curr = curr->next; // move to the next node
     }
     printf("NULL\n");
   }
   ```
-  ** Traversing is a process for print all values, search a specific value, find the length, find the place where the node is deleted or inserted, and find the sum or average.**
+   **Traversing is a process for print all values, search a specific value, find the length, find the place where the node is deleted or inserted, and find the sum or average.**
+
+- Inserting Nodes
+  - Insert at beginning (O(1))
+    ```C
+    void insertFront(struct Node** head, int value) { // change the head pointer itself with **
+      struct Node* newNode = malloc(sizeof(struct Node));
+      newNode->data = value;
+      newNode->next = head;
+      *head = newNode;
+    }
+    ```
+  - Insert at end (O(n))
