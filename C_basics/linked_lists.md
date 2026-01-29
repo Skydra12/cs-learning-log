@@ -45,6 +45,7 @@ struct Node {
    **Traversing is a process for print all values, search a specific value, find the length, find the place where the node is deleted or inserted, and find the sum or average.**
 
 
+
 - Inserting Nodes
   - Insert at beginning (O(1))
     ```C
@@ -60,13 +61,13 @@ struct Node {
     void insertEnd(struct Node* head, int value) {
       struct Node* newNode = malloc(sizeof(struct Node))
       newNode->data = value;
-      newNode->next = NULL;
+      newNode->next = NULL; // since this will be the last node, next is NULL
 
-      while(head->next != NULL) {
-        head = head->next;
+      while(head->next != NULL) { // traverse until reach the last node
+        head = head->next; 
       }
 
-    head->next = newNode;
+    head->next = newNode; // link the last node to the new node
     }
     ```
     
