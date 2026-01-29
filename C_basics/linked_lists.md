@@ -41,4 +41,4 @@ struct Node {
     printf("NULL\n");
   }
   ```
-  **Traversing is a process for print all values, search a specific value, find the length, find the place where the node is deleted or inserted, and find the sum or average.**
+  ** Traversing is a process for print all values, search a specific value, find the length, find the place where the node is deleted or inserted, and find the sum or average.**
