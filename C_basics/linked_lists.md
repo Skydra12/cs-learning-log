@@ -44,12 +44,10 @@ struct Node {
   ```
    **Traversing is a process for print all values, search a specific value, find the length, find the place where the node is deleted or inserted, and find the sum or average.**
 
-
-
 - Inserting Nodes
   - Insert at beginning (O(1))
     ```C
-    void insertFront(struct Node** head, int value) { // change the head pointer itself with **
+    void insertFront(struct Node** head, int value) { // since the function need to modify the head pointer itself, use **
       struct Node* newNode = malloc(sizeof(struct Node));
       newNode->data = value; // store the given value in the new node
       newNode->next = head; // make the new node point to the current head node
