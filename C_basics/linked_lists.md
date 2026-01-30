@@ -65,7 +65,28 @@ struct Node {
         head = head->next; 
       }
 
-    head->next = newNode; // link the last node to the new node
+      head->next = newNode; // link the last node to the new node
     }
     ```
-    
+- Deleting a Node
+  ```C
+  void deleteNode(struct Node** head, int value) {
+    struct Node* curr = *head; // start from the head of the list
+    struct Node* prev = NULL; //prev will track the node before curr
+
+    while (curr != NULL && curr->data != value) { // traverse the list until we find the value or reach the end(NULL)
+      prev = curr; // move prev forward
+      curr = curr->next; // move curr forward
+    }
+
+    if (curr == NULL) return; // if curr is NULL, the value was not found
+
+    if (prev == NULL) { // if prev is NULL, delete the head node
+      *head = curr->next; // move head to the next node
+    } else { // otherwise, bypass the current node
+      prev->next = curr->next;
+    }
+
+    free(curr); // free the memory of the deleted node
+  }
+  ```
