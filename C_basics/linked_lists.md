@@ -1,7 +1,7 @@
 # Linked Lists in C
 
 ## Linked List
-A dynamic data structure where each element (node) points to the next one
+A dynamic data structure where each node contains data and a pointer to the next node
 
 ## Structure of a Node
 ```C
@@ -42,7 +42,7 @@ struct Node {
     printf("NULL\n");
   }
   ```
-   **Traversing is a process for print all values, search a specific value, find the length, find the place where the node is deleted or inserted, and find the sum or average.**
+   **Traversing is the process of visiting each node in the list. It is used to print values, search for a specific value, find the length of the list, and locate positions for insertion or deletion.**
 
 - Inserting Nodes
   - Insert at beginning (O(1))
@@ -50,14 +50,14 @@ struct Node {
     void insertFront(struct Node** head, int value) { // since the function need to modify the head pointer itself, use **
       struct Node* newNode = malloc(sizeof(struct Node));
       newNode->data = value; // store the given value in the new node
-      newNode->next = head; // make the new node point to the current head node
+      newNode->next = *head; // make the new node point to the current head node
       *head = newNode; // update the head pointer to point to the new node
     }
     ```
   - Insert at end (O(n))
     ```C
     void insertEnd(struct Node* head, int value) {
-      struct Node* newNode = malloc(sizeof(struct Node))
+      struct Node* newNode = malloc(sizeof(struct Node));
       newNode->data = value;
       newNode->next = NULL; // since this will be the last node, next is NULL
 
@@ -90,3 +90,8 @@ struct Node {
     free(curr); // free the memory of the deleted node
   }
   ```
+## Time Complexity Summary
+- Traversing: O(n)
+- Inserting at beggining: O(1)
+- Inserting at end: O(n)
+- Deleting: O(n)
