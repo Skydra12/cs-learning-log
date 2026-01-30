@@ -70,7 +70,7 @@ struct Node {
     ```
 - Deleting a Node
   ```C
-  void deleteNode(struct Node** head, int value) {
+  void deleteNode(struct Node** head, int value) { // since deleting the head requires updating the head pointer, use **
     struct Node* curr = *head; // start from the head of the list
     struct Node* prev = NULL; //prev will track the node before curr
 
