@@ -16,6 +16,8 @@ struct Node {
   struct Node* head = malloc(sizeof(struct Node));
   struct Node* second = malloc(sizeof(struct Node));
   struct Node* third = malloc(sizeof(struct Node));
+  
+  if (head == NULL || second == NULL || third == NULL) return;
 
   head->data = 1;
   head->next = second;
@@ -32,7 +34,7 @@ struct Node {
 
 - Traversing a Linked List
   ```C
-  void printlist(struct Node* head) {
+  void printList(struct Node* head) {
     struct Node* curr = head;
 
     while(curr != NULL) {
@@ -45,32 +47,43 @@ struct Node {
    **Traversing is the process of visiting each node in the list. It is used to print values, search for a specific value, find the length of the list, and locate positions for insertion or deletion.**
 
 - Inserting Nodes
-  - Insert at beginning (O(1))
+  - Insert at beginning
     ```C
     void insertFront(struct Node** head, int value) { // since the function need to modify the head pointer itself, use **
       struct Node* newNode = malloc(sizeof(struct Node));
+      if (newNode == NULL) return; // if allocation fails, exit the function
+      
       newNode->data = value; // store the given value in the new node
       newNode->next = *head; // make the new node point to the current head node
       *head = newNode; // update the head pointer to point to the new node
     }
     ```
-  - Insert at end (O(n))
+  - Insert at end
     ```C
-    void insertEnd(struct Node* head, int value) {
+    void insertEnd(struct Node** head, int value) {
       struct Node* newNode = malloc(sizeof(struct Node));
-      newNode->data = value;
-      newNode->next = NULL; // since this will be the last node, next is NULL
+      if (newNode == NULL) return;
+      
+      newNode->data = value; // store the given value
+      newNode->next = NULL; // this node will be the last node
 
-      while(head->next != NULL) { // traverse until reach the last node
-        head = head->next; 
+      if (*head == NULL) { // if the list is empty
+        *head = newNode; // the new node becomes the head
+        return;
       }
 
-      head->next = newNode; // link the last node to the new node
+      struct Node* curr = *head; // start traversing from the head
+      while(curr->next != NULL) { // traverse until reach the last node
+        curr = curr->next; 
+      }
+
+      curr->next = newNode; // link the last node to the new node
     }
     ```
 - Deleting a Node
   ```C
   void deleteNode(struct Node** head, int value) { // since deleting the head requires updating the head pointer, use **
+    if (*head == NULL) return;
     struct Node* curr = *head; // start from the head of the list
     struct Node* prev = NULL; //prev will track the node before curr
 
@@ -92,6 +105,6 @@ struct Node {
   ```
 ## Time Complexity Summary
 - Traversing: O(n)
-- Inserting at beggining: O(1)
-- Inserting at end: O(n)
-- Deleting: O(n)
+- Insert at beginning: O(1)
+- Insert at end: O(n)
+- Deletion(by value): O(n)
