@@ -107,7 +107,7 @@ struct Node {
     free(curr); // free the memory of the deleted node
   }
   ```
-## Memory Management Note
+### Memory Management Note
 All dynamically allocated nodes should be freed using 'free()' to avaoid memory leaks. especially when nodes are deleted or when the entire list is no longer needed
 
 ## Time Complexity Summary
