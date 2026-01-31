@@ -29,6 +29,10 @@ struct Node {
   third->next = NULL;
 
   printf("%d -> %d -> %d -> NULL\n", head->data, head->next->data, head->next->next->data); // 1 -> 2 -> 3 -> NULL
+
+  free(third);
+  free(second);
+  free(head); // free the entire list that is no longer needed
   ```
 
 
@@ -103,6 +107,9 @@ struct Node {
     free(curr); // free the memory of the deleted node
   }
   ```
+## Memory Management Note
+All dynamically allocated nodes should be freed using 'free()' to avaoid memory leaks. especially when nodes are deleted or when the entire list is no longer needed
+
 ## Time Complexity Summary
 - Traversing: O(n)
 - Insert at beginning: O(1)
